@@ -10,6 +10,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
 public class addActivity extends AppCompatActivity {
+    int y;
     String[] category = {"Weeding","outdoor","business workshops"};
     AutoCompleteTextView autoCompleteTextView;
 
