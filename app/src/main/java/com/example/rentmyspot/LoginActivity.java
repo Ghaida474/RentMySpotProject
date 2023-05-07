@@ -8,11 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends SigninActivity {
 
     EditText username, password;
     Button login, signin;
-    DBHelper DB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
-        DB = new DBHelper(this);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,8 +33,9 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Boolean check = DB.checkUsernamePassword(user, pass);
                     if (check){
-                        Toast.makeText(LoginActivity.this, "log in successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "login successfully "+user , Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(),HomepageActivity.class);
+                        intent.putExtra("username",user);
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();

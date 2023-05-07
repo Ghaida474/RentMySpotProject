@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SigninActivity extends AppCompatActivity {
-
     EditText username, password;
     Button signin;
     DBHelper DB;
@@ -23,12 +22,11 @@ public class SigninActivity extends AppCompatActivity {
             password = findViewById(R.id.password1);
             signin = findViewById(R.id.signin1);
             DB = new DBHelper(this);
-
             signin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String user = username.getText().toString();
-                    String pass = password.getText().toString();
+                    String  user = username.getText().toString();
+                    String  pass = password.getText().toString();
 
                     if(user.equals("")||pass.equals(""))
                         Toast.makeText(SigninActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
@@ -39,13 +37,14 @@ public class SigninActivity extends AppCompatActivity {
                             if(insert){
                                 Toast.makeText(SigninActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(),HomepageActivity.class);
+                                intent.putExtra("username",user);
                                 startActivity(intent);
                             }else{
                                 Toast.makeText(SigninActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                         else{
-                            Toast.makeText(SigninActivity.this,"Already exists! please log in",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SigninActivity.this,"Already exists! please login",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
