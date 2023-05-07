@@ -1,16 +1,30 @@
 package com.example.rentmyspot;
 
 public class Seating {
+
+    String userneme;
     String Sname;
     String Scategory;
     int Sprice;
     String Sdescription;
 
-    public Seating(String Sname,String Scatogary,int Sprice,String Sdescription) {
+    public Seating(String userneme, String Sname, String Scatogary, int Sprice, String Sdescription) {
+       this.userneme = userneme;
         this.Sname = Sname;
         this.Scategory = Scatogary;
         this.Sprice = Sprice;
         this.Sdescription = Sdescription;
+    }
+
+    public Seating(){}
+
+
+ public String getUserneme() {
+        return userneme;
+    }
+
+    public void setUserneme(String userneme) {
+        this.userneme = userneme;
     }
 
     public String getSname() {
@@ -48,8 +62,9 @@ public class Seating {
     @Override
     public String toString() {
         return "Seating{" +
-                "Sname='" + Sname + '\'' +
-                ", Scatogary='" + Scategory + '\'' +
+                "userneme='" + userneme + '\'' +
+                ", Sname='" + Sname + '\'' +
+                ", Scategory='" + Scategory + '\'' +
                 ", Sprice=" + Sprice +
                 ", Sdescription='" + Sdescription + '\'' +
                 '}';
