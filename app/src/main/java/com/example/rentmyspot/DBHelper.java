@@ -14,7 +14,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLENAME1 = "users";
     public static final String T1COL1 = "username";
     public static final String T1COL2 = "password";
-    public static final String T1COL3 = "ReantedSeatingName";
+    public static final String T1COL3 = "age";
+    public static final String T1COL4 = "email";
+    public static final String T1COL5 = "ReantedSeatingName";
+
+//    ----------------------------------------------------------
+
     public static final String TABLENAME2 = "seating";
     public static final String T2COL1 = "SeatingID";
     public static final String T2COL2 = "username";
@@ -29,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE " + TABLENAME1 + "(" + T1COL1 + " TEXT PRIMARY KEY," + T1COL2 + " TEXT," + T1COL3 + " TEXT" + ")");
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLENAME1 + "(" + T1COL1 + " TEXT PRIMARY KEY," + T1COL2 + " TEXT," + T1COL3 + " INTEGER," + T1COL4 + " TEXT," + T1COL5 + " TEXT"+ ")");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLENAME2 + "(" + T2COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT," + T2COL2 + " TEXT," + T2COL3 + " TEXT," + T2COL4 + " TEXT," + T2COL5 + " INTEGER," + T2COL6 + " TEXT," +
                 " FOREIGN KEY (" + T2COL6 + ") REFERENCES " + TABLENAME1 +
@@ -73,8 +78,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         //close
     }
-
-
 
     public Boolean insertData(String username, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
