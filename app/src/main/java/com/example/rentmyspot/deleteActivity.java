@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class deleteActivity extends SigninActivity {
     ListView list;
-    ArrayAdapter seatArrayAdapter;
+    SeatingListAdapter seatArrayAdapter;
     String username;
 
     @SuppressLint("MissingInflatedId")
@@ -22,25 +22,25 @@ public class deleteActivity extends SigninActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
-
         list = findViewById(R.id.seatlist);
-         username = (String)getIntent().getSerializableExtra("username");
-        ShowSeatsOnListView(DB);
+        username = (String) getIntent().getSerializableExtra("username");
+        DBHelper db = new DBHelper(this);
+        ShowSeatsOnListView(db);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Seating clickedSeat =(Seating) seatArrayAdapter.getItem(i);
-                DB.DeleteOne(clickedSeat);
+                Seating clickedSeat = (Seating) seatArrayAdapter.getItem(i);
+                db.DeleteOne(clickedSeat);
                 seatArrayAdapter.clear();
-                ShowSeatsOnListView(DB);
+                ShowSeatsOnListView(db);
                 Toast.makeText(deleteActivity.this, "Seating Deleted: " + clickedSeat.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void ShowSeatsOnListView(DBHelper dataBaseHelper) {
-        seatArrayAdapter = new ArrayAdapter<Seating>(deleteActivity.this, android.R.layout.simple_list_item_1, dataBaseHelper.SeatingList(username));
+        seatArrayAdapter = new SeatingListAdapter(deleteActivity.this, dataBaseHelper.SeatingList(username));
         list.setAdapter(seatArrayAdapter);
     }
 }
