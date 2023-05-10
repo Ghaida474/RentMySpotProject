@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLENAME1 = "users";
     public static final String T1COL1 = "username";
     public static final String T1COL2 = "password";
-    public static final String T1COL3 = "age";
-    public static final String T1COL4 = "email";
+    public static final String T1COL4 = "age";
+    public static final String T1COL3 = "email";
     public static final String T1COL5 = "ReantedSeatingName";
 
 //    ----------------------------------------------------------
@@ -85,6 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         contentValues.put(T1COL1, username);
         contentValues.put(T1COL2, password);
+
         long result = MyDB.insert(TABLENAME1, null, contentValues);
 
         if (result == -1)
@@ -105,6 +106,7 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor.getCount() > 0) return true;
         return false;
     }
+
 
     public List<Seating> SeatingList(String userneme) {
         List<Seating> returnList = new ArrayList<>();
