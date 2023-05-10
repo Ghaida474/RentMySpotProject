@@ -34,7 +34,7 @@ public class addActivity extends SigninActivity implements Serializable {
     EditText Sname ,Sprice, Sdescription;
     Button add1;
     String category;
-    String[] categorys = {"Weeding","outdoor","business workshops"};
+    String[] categorys = {"Wedding","outdoor","business workshops"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterCategorys;
     Seating newSeating;
