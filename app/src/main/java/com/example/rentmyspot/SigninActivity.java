@@ -9,9 +9,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SigninActivity extends AppCompatActivity {
-    EditText username, password;
+    EditText username, password,Email,Date;
     Button signin;
+
+
     DBHelper DB;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,10 @@ public class SigninActivity extends AppCompatActivity {
             username = findViewById(R.id.username1);
             password = findViewById(R.id.password1);
             signin = findViewById(R.id.signin1);
+            Email=findViewById(R.id.email1);
+
+            Date=findViewById(R.id.Age);
+
             DB = new DBHelper(this);
             signin.setOnClickListener(new View.OnClickListener() {
                 @Override
