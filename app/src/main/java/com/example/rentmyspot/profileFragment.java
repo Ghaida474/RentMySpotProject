@@ -53,7 +53,9 @@ public class profileFragment extends Fragment implements Serializable {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = (String) getActivity().getIntent().getSerializableExtra("username");
                 Intent intent = new Intent(getActivity(), deleteActivity.class);
+                intent.putExtra("username",username);
                 startActivity(intent);
             }
         });

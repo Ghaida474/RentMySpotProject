@@ -18,7 +18,6 @@ public class addActivity extends SigninActivity implements Serializable {
     String category;
     String[] categorys = {"Weeding","outdoor","business workshops"};
     AutoCompleteTextView autoCompleteTextView;
-
     ArrayAdapter<String> adapterCategorys;
     Seating newSeating;
     @Override

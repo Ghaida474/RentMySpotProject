@@ -112,7 +112,6 @@ public class DBHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 String SName = cursor.getString(2);
-
                 String Scat = cursor.getString(3);
                 int Sprice = cursor.getInt(4);
                 String Sdes = cursor.getString(5);
@@ -124,8 +123,5 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return returnList;
-
-
     }
-
 }
