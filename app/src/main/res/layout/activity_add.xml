@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0E3D3"
+    android:background="@drawable/colorr"
     tools:context=".addActivity">
 
 
@@ -74,6 +74,9 @@
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:text="ADD"
+        android:textSize="20dp"
+        android:textColor="#6E6861"
+        android:background="#f0e3d3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
