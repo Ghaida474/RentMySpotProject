@@ -158,7 +158,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(queryString, null);
         if (cursor.moveToFirst()) {
             do {
-                String username = cursor.getString(0);
+                String username = cursor.getString(1);
 
                 String SName = cursor.getString(2);
                 String Scat = cursor.getString(3);
